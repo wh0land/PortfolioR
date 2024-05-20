@@ -7,8 +7,8 @@ export function Header() {
             <h3><MainTitle href="/">leejin portfolio</MainTitle></h3>
             <NavVar>
               <Menu href={`/`}><li>Main</li></Menu>
-              <Menu href={`../routes/posts.jsx`}><li>Posts</li></Menu>
-              <Menu href={`../routes/write.jsx`}><li>Write</li></Menu>
+              <Menu href={`/posts`}><li>Posts</li></Menu>
+              <Menu href={`/write`}><li>Write</li></Menu>
             </NavVar>
         </ProfileTitle>
     </div>

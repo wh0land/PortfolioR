@@ -23,11 +23,11 @@ const router = createBrowserRouter([
       element: <Home />,
     },
     {
-      path: "routes/posts.jsx",
+      path: "/posts",
       element: <Posts/>,
     },
     {
-      path: "routes/write.jsx",
+      path: "/write",
       element: <Write/>,
     } ]
   }
