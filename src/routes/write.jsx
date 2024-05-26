@@ -1,16 +1,94 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export default function Write() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleContentChange = (e) => {
+    setContent(e.target.value);
+  };
+
   return (
-    <div>
-      <Wrapper id="write">글 쓰기 게시판입니다.</Wrapper>
-    </div>
-  )
+    <>
+      <WriteBox><h3>글쓰기</h3></WriteBox>
+      <DetailBox>
+        <PostHeader>
+          <TitleInput
+            placeholder="제목을 입력하세요"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </PostHeader>
+        <PostContent>
+          <ContentInput
+            placeholder="내용을 입력하세요"
+            value={content}
+            onChange={handleContentChange}
+          />
+        </PostContent>
+      </DetailBox>
+    </>
+  );
 }
 
-const Wrapper = styled.div`
+const WriteBox = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 300px;
+margin-top: 20px;
 `
+
+const DetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #fbfbfb;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  height: 400px;
+  box-shadow: 0px 0px 5px #d9d9d9;
+  box-sizing: border-box;
+`;
+
+const PostHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const PostContent = styled.div`
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #333;
+  border-top: solid #d9d9d9 2px;
+  overflow-wrap: break-word;
+  p {
+    margin: 0 10 0 0;
+  }
+`;
+
+const TitleInput = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+`;
+
+const ContentInput = styled.textarea`
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+`;
