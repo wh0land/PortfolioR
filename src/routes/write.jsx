@@ -31,10 +31,32 @@ export default function Write() {
             onChange={handleContentChange}
           />
         </PostContent>
+        <ButtonWrapper>
+          <button>upload</button>
+        </ButtonWrapper>
       </DetailBox>
     </>
   );
 }
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+
+  button {
+    background-color: #a7a7d7;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #8c8cc7;
+    }
+  }
+`;
 
 const WriteBox = styled.div`
 display: flex;
