@@ -78,15 +78,19 @@ const Menu = styled.a`
   text-decoration: none;
   color:#FFFFFF;
   font-weight: 500;
+
   &:hover{
-    background-color:#b1e2ec;
-    color:black;
+    background-color:#8c8cc7;
   };
 `
 
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 10px;
+
+  a {
+    color: #363636;
+  };
 
   button {
     background-color: #ffffff;

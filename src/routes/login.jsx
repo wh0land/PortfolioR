@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {useState} from 'react';
-import axios from "axios";
+import api from "./api";
 import {Cookies} from "react-cookie";
 
 export default function Login() {
@@ -14,14 +14,10 @@ export default function Login() {
   const handlePwChange = (e) => {
     setPw(e.target.value);
     };
-  
-  const apiCall = axios.create({
-    baseURL: "https://dummyjson.com",
-    });
-  
-  const clickOk = async () => {
+
+  const loginOk = async (id, pw) => {
     try{
-      const response = await apiCall.post("/auth/login", {
+      const response = await api.post("/dj/login/", {
         username: id,
         password: pw,
       });
@@ -57,7 +53,7 @@ export default function Login() {
               onChange={handlePwChange}
             />        
             <ButtonWrapper>
-              <button onClick={clickOk}>Login</button>
+              <button onClick={loginOk}>Login</button>
             </ButtonWrapper>
             <hr/>
             <BottomDiv>
@@ -90,7 +86,7 @@ align-items: center;
 flex-direction: column;
 margin-top: 200px;
 gap: 10px;
-height: 300px;
+height: auto;
 width: 200px;
 background-color: #ffffff;
 border-radius:15px;
@@ -108,18 +104,6 @@ hr {
     width:100%;
     color: #181818;
   };
-
-h6 {
-  margin: 0px;
-};
-
-span {
-  font-size: 9px;
-};
-
-a {
-  color: #2428ff;
-};
 `;
 
 export const InputBox = styled.input`
@@ -159,5 +143,18 @@ display: flex;
 flex-direction: row;
 gap: 5px;
 align-items: baseline ;
+
+h6 {
+  margin: 0px;
+  color: #363636;
+};
+
+span {
+  font-size: 9px;
+};
+
+a {
+  color: #2226ff;
+};
 `;                                                                                                                                                                                                                                                                    
 
