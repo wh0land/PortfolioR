@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PageTitle } from "./posts";
 import styled from "styled-components";
 
 export default function Write() {
@@ -15,24 +16,24 @@ export default function Write() {
 
   return (
     <>
-      <WriteBox><h3>글쓰기</h3></WriteBox>
+      <PageTitle><h3>글쓰기</h3></PageTitle>
       <DetailBox>
         <PostHeader>
           <TitleInput
-            placeholder="제목을 입력하세요"
+            placeholder="제목"
             value={title}
             onChange={handleTitleChange}
           />
         </PostHeader>
         <PostContent>
           <ContentInput
-            placeholder="내용을 입력하세요"
+            placeholder="내용"
             value={content}
             onChange={handleContentChange}
           />
         </PostContent>
         <ButtonWrapper>
-          <button>upload</button>
+          <button>Upload</button>
         </ButtonWrapper>
       </DetailBox>
     </>
@@ -59,14 +60,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const WriteBox = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 20px;
-`
-
-const DetailBox = styled.div`
+export const DetailBox = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fbfbfb;
@@ -79,13 +73,13 @@ const DetailBox = styled.div`
   box-sizing: border-box;
 `;
 
-const PostHeader = styled.div`
+export const PostHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const PostContent = styled.div`
+export const PostContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

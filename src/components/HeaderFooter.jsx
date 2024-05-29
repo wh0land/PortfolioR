@@ -10,6 +10,7 @@ export function Header() {
               <Menu href={`/`}><li>Main</li></Menu>
               <Menu href={`/posts`}><li>Posts</li></Menu>
               <Menu href={`/write`}><li>Write</li></Menu>
+              <Menu href={`/pd`}><li>pd!!</li></Menu>
             </NavVar>
           </MainTitle>
           <NavVar>
@@ -103,6 +104,7 @@ const ButtonWrapper = styled.div`
 
     &:hover {
       background-color: #8c8cc7;
+      a {color: white;}
     }
   };
 `;

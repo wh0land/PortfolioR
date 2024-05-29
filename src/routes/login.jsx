@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {useState} from 'react';
 import api from "./api";
-import {Cookies} from "react-cookie";
 
 export default function Login() {
 
@@ -23,18 +22,10 @@ export default function Login() {
       });
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("token", response.data.token);
-      setCookie("token", response.data.token);
       return response.data;
     } catch (error) {
       return error;
     }
-  };
-
-  const cookies = new Cookies();
-
-  const setCookie = (name, value) => {
-    return cookies.set(name, value);
   };
 
   return (

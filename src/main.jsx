@@ -14,6 +14,7 @@ import Signup from "./routes/signup";
 
 /* existing imports */
 import Root from "./routes/root";
+import PostDetail from "./routes/postdetail";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     {
       path: "/signup",
       element: <Signup/>,
+    },
+    {
+      path: "/pd",
+      element: <PostDetail/>,
     } ]
   }
 ]);

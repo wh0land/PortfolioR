@@ -2,76 +2,26 @@ import styled from "styled-components";
 export default function Posts() {
   return (
     <>
-      <Box id="posts"><h3>게시글</h3></Box>
+      <PageTitle><h3>게시글</h3></PageTitle>
       <PostboxWrapper>
         <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
-        </PostBox>
-        <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
-        </PostBox>
-        <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
-        </PostBox>
-      </PostboxWrapper>
-      <PostboxWrapper>
-        <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
-        </PostBox>
-        <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
-        </PostBox>
-        <PostBox>
-          <PostEdit>
-          <h2>Title</h2>
-          <h6>edit</h6>
-          </PostEdit>
-          <div>
-            <h5>by. user0203</h5>
-            <h6>더보기</h6>
-          </div>
+          <PostMeta>
+            <h6>Post Id</h6>
+            <h6>by. user0203</h6>
+          </PostMeta>
+          <hr/>
+          <h2>제목:</h2>
+          <h5>게시글 내용 미리보기입니다..</h5>
+          <ButtonWrapper>
+          <button><span>상세보기</span></button>
+          </ButtonWrapper>
         </PostBox>
       </PostboxWrapper>
     </>
   )
 }
 
-const Box = styled.div`
+export const PageTitle = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -90,17 +40,58 @@ const PostBox = styled.div`
 display: flex;
 flex-direction: column;
 background-color: #FBFBFB;
-border-radius: 3px;
-border-top: solid #a7a7d7 4px;
-padding: 10px;
+border-radius: 5px;
+padding: 20px;
 width: 100%;
 box-shadow:0px 0px 5px #D9D9D9;
+gap:5px;
+
+hr {
+  width:100%;
+  background-color:#a7a7d7;
+  border: none;
+  height: 1.5px;
+  margin: 0px;
+};
+
+h2 {
+  margin: 10px 0px 0px 0px;
+};
+
+h6 {
+  margin: 0px;
+  color: #767676;
+};
 `
 
-const PostEdit = styled.div`
-display: flex;
-flex-direction: row;
-margin:0px;
-gap: 10px;
-align-items:flex-end;
+const PostMeta = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-right: 20px;
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+
+  button {
+    background-color: #a7a7d7;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    span {
+      font-size: 10px;
+    }
+
+    &:hover {
+      background-color: #8c8cc7;
+    }
+  }
+`;
