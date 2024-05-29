@@ -45,6 +45,7 @@ const ButtonWrapper = styled.div`
 
   button {
     background-color: #a7a7d7;
+    width: 100%;
     border: none;
     border-radius: 3px;
     padding: 5px 10px;
@@ -69,11 +70,11 @@ const DetailBox = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fbfbfb;
-  border-radius: 3px;
+  border-radius: 15px;
   padding: 20px;
   margin: 20px auto;
   width: 90%;
-  height: 400px;
+  height: auto;
   box-shadow: 0px 0px 5px #d9d9d9;
   box-sizing: border-box;
 `;
@@ -85,10 +86,12 @@ const PostHeader = styled.div`
 `;
 
 const PostContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
-  line-height: 1.6;
+  margin-bottom: 10px;
   color: #333;
-  border-top: solid #d9d9d9 2px;
   overflow-wrap: break-word;
   p {
     margin: 0 10 0 0;

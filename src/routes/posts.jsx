@@ -102,5 +102,5 @@ display: flex;
 flex-direction: row;
 margin:0px;
 gap: 10px;
-align-item:flex-end;
+align-items:flex-end;
 `
