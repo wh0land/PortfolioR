@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import {useState} from 'react';
 import api from "./api";
 
 export default function Login() {
 
+  const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
 
@@ -14,14 +16,19 @@ export default function Login() {
     setPw(e.target.value);
     };
 
-  const loginOk = async (id, pw) => {
+  const loginOk = async () => {
     try{
       const response = await api.post("/dj/login/", {
         username: id,
         password: pw,
       });
       console.log(response.data);
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("access", response.data.access);
+
+      
+      //회원가입 성공시
+      navigate('/loginsuccess');
+
       return response.data;
     } catch (error) {
       return error;

@@ -17,7 +17,7 @@ export default function Write() {
   return (
     <>
       <PageTitle><h3>글쓰기</h3></PageTitle>
-      <DetailBox>
+      <BoxWrapper>
         <PostHeader>
           <TitleInput
             placeholder="제목"
@@ -35,7 +35,7 @@ export default function Write() {
         <ButtonWrapper>
           <button>Upload</button>
         </ButtonWrapper>
-      </DetailBox>
+      </BoxWrapper>
     </>
   );
 }
@@ -60,7 +60,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export const DetailBox = styled.div`
+export const BoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fbfbfb;

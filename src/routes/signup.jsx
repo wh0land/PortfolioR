@@ -1,11 +1,12 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from './api';
-import {Cookies} from "react-cookie";
 import { LoginBox, LoginWrapper, InputBox, ButtonWrapper, BottomDiv } from './login';
 import styled from "styled-components";
 
 export default function Signup() {
-
+  
+  const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw1, setPw1] = useState('');
   const [pw2, setPw2] = useState('');
@@ -33,6 +34,7 @@ export default function Signup() {
   };
   
   const signupOk = async () => {
+
     try{
       const response = await api.post("/dj/registration/", {
         username: id,
@@ -43,20 +45,18 @@ export default function Signup() {
         location: loc,
       });
       console.log(response.data);
-      localStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("token", response.data.token);
-      setCookie("token", response.data.token);
-      return response.data;
+      localStorage.setItem("access", response.data.access);
+
+      //로그인 성공시
+      navigate('/login');
+      return response.data, response.data.access;
+      
     } catch (error) {
       return error;
     }
   };
 
-  const cookies = new Cookies();
-
-  const setCookie = (name, value) => {
-    return cookies.set(name, value);
-  };
+  console.log(localStorage.getItem("access"));
 
   return (
     <div>

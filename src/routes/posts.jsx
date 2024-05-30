@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export default function Posts() {
   return (
     <>
@@ -28,7 +29,7 @@ align-items: center;
 margin-top: 20px;
 `
 
-const PostboxWrapper = styled.div`
+export const PostboxWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -36,11 +37,11 @@ gap: 30px;
 margin: 30px 40px 0px;
 `
 
-const PostBox = styled.div`
+export const PostBox = styled.div`
 display: flex;
 flex-direction: column;
 background-color: #FBFBFB;
-border-radius: 5px;
+border-radius: 15px;
 padding: 20px;
 width: 100%;
 box-shadow:0px 0px 5px #D9D9D9;
@@ -64,7 +65,7 @@ h6 {
 };
 `
 
-const PostMeta = styled.div`
+export const PostMeta = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;

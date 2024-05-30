@@ -1,49 +1,58 @@
 import styled from "styled-components";
-import {DetailBox, PostHeader, PostContent} from "./write";
+import {PostHeader, PostContent} from "./write";
+import { PostBox, PostboxWrapper, ButtonWrapper } from "./posts";
 
 export default function PostDetail() {
   return (
     <>
-      <DetailBox>
+      <PostboxWrapper>
+      <PostBox>    
+        <PostId>
+        <h5>postid</h5>
+        </PostId>    
         <PostHeader>
-          <h2>클레오파트라</h2>
-          <ButtonWrapper>
+          <h2>제목: 클레오파트라</h2>
+        </PostHeader>
+        <PostHeader>
+        <WriterId>
+        <h5>by. user0203</h5>
+        </WriterId>
+        <ButtonWrapper>
             <button>edit</button>
             <button>delete</button>
           </ButtonWrapper>
         </PostHeader>
-        <PostMeta>
-          <h5>by. user0203</h5>
-        </PostMeta>
+        <hr/>
         <PostContent>
           <p>안녕 클레오파트라 세상에서 제일 가는 포테이토칩</p>
         </PostContent>
-      </DetailBox>
+      </PostBox>
+      </PostboxWrapper>
     </>
   );
 }
 
-const ButtonWrapper = styled.div`
+const WriterId = styled.div`
   display: flex;
-  gap: 10px;
+  flex-direction: row;
+  margin: 5px 0px 5px 0px;
 
-  button {
-    background-color: #a7a7d7;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #8c8cc7;
-    }
-  }
+  h5 {
+    color: gray;
+    font-size: 10px;
+    margin:0px;
+  };
 `;
 
-const PostMeta = styled.div`
+const PostId = styled.div`
   display: flex;
-  align-items: center;
-  color: #757575;
-`;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0px;
+
+  h5 {
+    color: gray;
+    font-size: 10px;
+    margin:0px;
+  };
+`
