@@ -3,7 +3,8 @@ import styled from "styled-components";
 export default function Posts() {
   return (
     <>
-      <PageTitle><h3>게시글</h3></PageTitle>
+    <PageWrapper>
+    <PageTitle><h3>게시글</h3></PageTitle>
       <PostboxWrapper>
         <PostBox>
           <PostMeta>
@@ -18,9 +19,16 @@ export default function Posts() {
           </ButtonWrapper>
         </PostBox>
       </PostboxWrapper>
+    </PageWrapper>
     </>
   )
 }
+
+export const PageWrapper = styled.div`
+display: flex;
+flex-direction: column;
+height: 100vh; 
+`
 
 export const PageTitle = styled.div`
 display: flex;

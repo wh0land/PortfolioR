@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PageTitle } from "./posts";
+import { PageTitle, PageWrapper } from "./posts";
 import styled from "styled-components";
 
 export default function Write() {
@@ -16,7 +16,8 @@ export default function Write() {
 
   return (
     <>
-      <PageTitle><h3>글쓰기</h3></PageTitle>
+    <PageWrapper>
+    <PageTitle><h3>글쓰기</h3></PageTitle>
       <BoxWrapper>
         <PostHeader>
           <TitleInput
@@ -36,6 +37,7 @@ export default function Write() {
           <button>Upload</button>
         </ButtonWrapper>
       </BoxWrapper>
+    </PageWrapper>
     </>
   );
 }

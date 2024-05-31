@@ -25,7 +25,6 @@ export default function Login() {
       console.log(response.data);
       localStorage.setItem("access", response.data.access);
 
-      
       //회원가입 성공시
       navigate('/loginsuccess');
 

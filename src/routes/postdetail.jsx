@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import {PostHeader, PostContent} from "./write";
-import { PostBox, PostboxWrapper, ButtonWrapper } from "./posts";
+import { PostBox, PostboxWrapper, ButtonWrapper, PageWrapper } from "./posts";
 
 export default function PostDetail() {
   return (
     <>
-      <PostboxWrapper>
+    <PageWrapper>
+    <PostboxWrapper>
       <PostBox>    
         <PostId>
         <h5>postid</h5>
@@ -28,6 +29,7 @@ export default function PostDetail() {
         </PostContent>
       </PostBox>
       </PostboxWrapper>
+    </PageWrapper>
     </>
   );
 }

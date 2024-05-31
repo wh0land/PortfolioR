@@ -51,7 +51,9 @@ const Warpper= styled.div`
 display: flex;
 flex-direction: column;
 gap:30px;
-margin-left: 30px;`
+margin-left: 30px;
+margin-bottom: 30px;
+`
 
 
 const TxtList= styled.ul`

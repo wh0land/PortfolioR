@@ -28,22 +28,6 @@ export function Header() {
   )
 }
 
-export function Footer() {
-  return (
-    <>
-      <FooterL>
-      <NavVar>
-        <a href="mailto:leejinj0730@hufs.ac.kr"><li>Email</li></a>
-        <a href="https://github.com/wh0land"><li>Github</li></a>
-        <a href="https://www.instagram.com/leejinch0_o?igsh=MWw3czV6NmJuNXJnYg%3D%3D&utm_source=qr"><li>Instagram</li></a>
-      </NavVar>
-        <span>Likelion 12th Assignment</span>
-        <span>ⓒ 2024. 조이진 All rights reserved.</span>
-      </FooterL>
-    </>
-  );
-}
-
 const ProfileTitle = styled.div`
 display: flex;
 justify-content: space-between;
@@ -66,7 +50,7 @@ a {
 };
 `
 
-const NavVar = styled.ul`
+export const NavVar = styled.ul`
 display: flex;
 justify-content: center;
 flex-direction: row;
@@ -110,7 +94,7 @@ const ButtonWrapper = styled.div`
 `;
 
 
-const FooterL= styled.div`
+export const FooterL= styled.div`
 height: 80px;
 display: flex;
 flex-direction: column;
