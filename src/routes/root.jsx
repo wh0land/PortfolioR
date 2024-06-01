@@ -10,6 +10,6 @@ export default function Root() {
         <Header />  
         <Outlet/>  
         <Footer/>
-        </>
+      </>
     );
   }

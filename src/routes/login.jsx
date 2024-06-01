@@ -23,11 +23,12 @@ export default function Login() {
         password: pw,
       });
       console.log(response.data);
-      localStorage.setItem("access", response.data.access);
+      sessionStorage.setItem("access", response.data.access);
+      sessionStorage.setItem("nickname", response.data.nickname);
 
       //회원가입 성공시
       navigate('/loginsuccess');
-
+      
       return response.data;
     } catch (error) {
       return error;

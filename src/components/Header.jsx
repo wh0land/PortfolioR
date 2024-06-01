@@ -1,31 +1,79 @@
 import styled from 'styled-components';
+import Login from '../routes/login';
+import { useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+
 
 export function Header() {
-  return (
-    <div>
+  
+  const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect (() => {
+    if(sessionStorage.getItem('access') === null){
+      console.log('isLogin ?? ::', isLogin)
+    } else {
+      setIsLogin(true)
+      console.log('isLogin ?? ::', isLogin)
+    }
+  })
+
+  const onLogout = () => {
+    sessionStorage.removeItem('access')
+    sessionStorage.removeItem('nickname')
+    navigate('/');
+  }
+
+  if (isLogin) {
+    return (
+      <>
         <ProfileTitle>
-          <MainTitle>
-            <h3><a href="/">leejin portfolio</a></h3>
-            <NavVar>
-              <Menu href={`/`}><li>Main</li></Menu>
-              <Menu href={`/posts`}><li>Posts</li></Menu>
-              <Menu href={`/write`}><li>Write</li></Menu>
-              <Menu href={`/pd`}><li>pd!!</li></Menu>
-            </NavVar>
-          </MainTitle>
+        <MainTitle>
+          <h3><a href="/">leejin portfolio</a></h3>
           <NavVar>
-            <ButtonWrapper>
-              <button>
-              <a href={`/login`}><li>Login</li></a>
-              </button>
-              <button>
-              <a href={`/signup`}><li>Sign up</li></a>
-              </button>
-            </ButtonWrapper>
+            <Menu href={`/`}><li>Main</li></Menu>
+            <Menu href={`/posts`}><li>Posts</li></Menu>
+            <Menu href={`/write`}><li>Write</li></Menu>
+            <Menu href={`/pd`}><li>pd!!</li></Menu>
           </NavVar>
-        </ProfileTitle>
-    </div>
-  )
+        </MainTitle>
+        <NavVar>
+          <ButtonWrapper>
+            <button onClick={onLogout}>
+              <li>Logout</li>
+            </button>
+          </ButtonWrapper>
+        </NavVar>
+      </ProfileTitle>
+    </>
+    );
+  } else {
+    return(
+      <>
+          <ProfileTitle>
+            <MainTitle>
+              <h3><a href="/">leejin portfolio</a></h3>
+              <NavVar>
+                <Menu href={`/`}><li>Main</li></Menu>
+                <Menu href={`/posts`}><li>Posts</li></Menu>
+                <Menu href={`/write`}><li>Write</li></Menu>
+                <Menu href={`/pd`}><li>pd!!</li></Menu>
+              </NavVar>
+            </MainTitle>
+            <NavVar>
+              <ButtonWrapper>
+                <button>
+                <a href={`/login`}><li>Login</li></a>
+                </button>
+                <button>
+                <a href={`/signup`}><li>Sign up</li></a>
+                </button>
+              </ButtonWrapper>
+            </NavVar>
+          </ProfileTitle>
+      </>
+    );
+  }
 }
 
 const ProfileTitle = styled.div`
@@ -92,16 +140,4 @@ const ButtonWrapper = styled.div`
     }
   };
 `;
-
-
-export const FooterL= styled.div`
-height: 80px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-color: rgb(204, 204, 204);
-font-size: 12px;
-margin-top: 80px;
-`
 

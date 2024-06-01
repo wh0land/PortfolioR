@@ -45,9 +45,9 @@ export default function Signup() {
         location: loc,
       });
       console.log(response.data);
-      localStorage.setItem("access", response.data.access);
+      sessionStorage.setItem("access", response.data.access);
 
-      //로그인 성공시
+      //회원가입 성공시
       navigate('/login');
       return response.data, response.data.access;
       
