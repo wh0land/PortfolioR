@@ -3,7 +3,7 @@ import {PostHeader, PostContent} from "./write";
 import { ButtonWrapper, PageWrapper } from "./posts";
 import api from "./api";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import ErrorPage from "../error-page";
 
 export default function PostDetail() {
@@ -11,6 +11,8 @@ export default function PostDetail() {
   const {postid} = useParams();
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState(null);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const getPosts = async () => {
     try {
@@ -24,17 +26,50 @@ export default function PostDetail() {
       setLoading(false);
     } catch (err) {
       console.error('에러: ', err);
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getPosts();
   }, [postid]);
+  
+  // 삭제 클릭 핸들러
+  const deletePost = async (postid) => {
+    try {
+        const res = await api.delete(`/blog/${postid}/`, {
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem('access')}`
+          }
+        });
+        console.log('삭제 완료', res);
+        if (res && res.status === 204) {
+          navigate('/posts');
+        } else {
+          console.error('삭제실패', res);
+        }
+      } catch (err) {
+        console.error('에러: ', err);
+      }
+  };
+
+  const handleDeleteClick = async () => {
+    try {
+      deletePost(post.id);
+      console.log("삭제완료!")
+      navigate('/post');
+    } catch (err) {
+      console.error('에러: ', err);
+      setError(err);
+    }
+  };
+      
 
   if (loading) {
     return <PageWrapper>Loading...</PageWrapper>;
   }
-  if (!post) {
+
+  if (error) {
     return <ErrorPage/>;
   }
   
@@ -47,7 +82,7 @@ export default function PostDetail() {
         <h5>postid: {post.id}</h5>
         </PostId>    
         <PostHeader>
-          <h2>제목: {post.title}</h2>
+          <h2>{post.title}</h2>
         </PostHeader>
         <PostHeader>
         <WriterId>
@@ -55,8 +90,8 @@ export default function PostDetail() {
         </WriterId>
         <ButtonWrapper>
             <button>edit</button>
-            <button>delete</button>
-          </ButtonWrapper>
+            <button onClick={handleDeleteClick}>delete</button>
+        </ButtonWrapper>
         </PostHeader>
         <hr/>
         <PostContent>

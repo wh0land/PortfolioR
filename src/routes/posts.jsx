@@ -24,7 +24,7 @@ export default function Posts() {
   return (
     <>
     <PageWrapper>
-    <PageTitle><h3>게시글</h3></PageTitle>
+    <PageTitle><h2>게시글</h2></PageTitle>
     <PostboxWrapper>
     {posts.map((post) => (
         <PostBox key={post.id}>          
@@ -33,8 +33,10 @@ export default function Posts() {
             <h6>user id: {post.user}</h6>
           </PostMeta>
           <hr/>
-          <h2>제목: {post.title}</h2>
+          <h3>제목: {post.title}</h3>
+          <PostListContent>
           <p>{post.body}</p>
+          </PostListContent>
           <ButtonWrapper>
             <Link to={`/posts/${post.id}`}><button><span>상세보기</span></button></Link>
           </ButtonWrapper>
@@ -87,8 +89,11 @@ hr {
   margin: 0px;
 };
 
-h2 {
-  margin: 10px 0px 0px 0px;
+h3 {
+  margin: 20px 0px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 };
 
 h6 {
@@ -105,6 +110,25 @@ export const PostMeta = styled.div`
   align-items: baseline;
   margin-right: 20px;
 `
+
+const PostListContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  p {
+    margin: 0 10 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;

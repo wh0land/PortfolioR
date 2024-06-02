@@ -37,7 +37,7 @@ export default function Write() {
   return (
     <>
     <PageWrapper>
-    <PageTitle><h3>글쓰기</h3></PageTitle>
+    <PageTitle><h2>글쓰기</h2></PageTitle>
     {posts.map((post) => (
       <div key={post.id}>
           <h2>제목: {post.title}</h2>
@@ -114,9 +114,17 @@ export const PostContent = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   color: #333;
-  overflow-wrap: break-word;
+  white-space: nowrap;
+
   p {
     margin: 0 10 0 0;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;   
+
   }
 `;
 
