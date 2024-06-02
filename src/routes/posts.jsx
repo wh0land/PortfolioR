@@ -1,23 +1,45 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
+import api from "./api";
+import { Link } from "react-router-dom";
 
 export default function Posts() {
+
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    try {
+      const response = await api.get('/blog/');
+      console.log('응답완료');
+      setPosts(response.data);
+    } catch (error) {
+      console.error('에러: ', error);
+    }
+  }
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <>
     <PageWrapper>
     <PageTitle><h3>게시글</h3></PageTitle>
-      <PostboxWrapper>
-        <PostBox>
+    <PostboxWrapper>
+    {posts.map((post) => (
+        <PostBox key={post.id}>          
           <PostMeta>
-            <h6>Post Id</h6>
-            <h6>by. user0203</h6>
+            <h6>post id:  {post.id}</h6>
+            <h6>user id: {post.user}</h6>
           </PostMeta>
           <hr/>
-          <h2>제목:</h2>
-          <h5>게시글 내용 미리보기입니다..</h5>
+          <h2>제목: {post.title}</h2>
+          <p>{post.body}</p>
           <ButtonWrapper>
-          <button><span>상세보기</span></button>
+            <Link to={`/posts/${post.id}`}><button><span>상세보기</span></button></Link>
           </ButtonWrapper>
         </PostBox>
+          ))}
       </PostboxWrapper>
     </PageWrapper>
     </>
@@ -40,6 +62,7 @@ margin-top: 20px;
 export const PostboxWrapper = styled.div`
 display: flex;
 flex-direction: row;
+flex-wrap: wrap;
 justify-content: center;
 gap: 30px;
 margin: 30px 40px 0px;
@@ -51,9 +74,10 @@ flex-direction: column;
 background-color: #FBFBFB;
 border-radius: 15px;
 padding: 20px;
-width: 100%;
+width: calc(33.333% - 20px); 
 box-shadow:0px 0px 5px #D9D9D9;
 gap:5px;
+
 
 hr {
   width:100%;

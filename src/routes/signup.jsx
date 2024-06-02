@@ -45,11 +45,10 @@ export default function Signup() {
         location: loc,
       });
       console.log(response.data);
-      sessionStorage.setItem("access", response.data.access);
 
       //회원가입 성공시
       navigate('/login');
-      return response.data, response.data.access;
+      return response.data;
       
     } catch (error) {
       return error;

@@ -24,7 +24,8 @@ export default function Login() {
       });
       console.log(response.data);
       sessionStorage.setItem("access", response.data.access);
-      sessionStorage.setItem("nickname", response.data.nickname);
+      sessionStorage.setItem("nickname", response.data.user.nickname);
+      console.log(response.data.user.nickname);
 
       //회원가입 성공시
       navigate('/loginsuccess');

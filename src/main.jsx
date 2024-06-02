@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       element: <Signup/>,
     },
     {
-      path: "/pd",
+      path: "/posts/:postid",
       element: <PostDetail/>,
     },
     {

@@ -6,21 +6,23 @@ import React, {useEffect, useState} from 'react';
 
 export function Header() {
   
+  let user = sessionStorage.getItem("nickname");
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect (() => {
     if(sessionStorage.getItem('access') === null){
-      console.log('isLogin ?? ::', isLogin)
+      console.log('isLogin ?? ::', isLogin);
     } else {
-      setIsLogin(true)
-      console.log('isLogin ?? ::', isLogin)
+      setIsLogin(true);
+      console.log('isLogin ?? ::', isLogin);
     }
   })
 
   const onLogout = () => {
     sessionStorage.removeItem('access')
     sessionStorage.removeItem('nickname')
+    setIsLogin(false);
     navigate('/');
   }
 
@@ -34,11 +36,11 @@ export function Header() {
             <Menu href={`/`}><li>Main</li></Menu>
             <Menu href={`/posts`}><li>Posts</li></Menu>
             <Menu href={`/write`}><li>Write</li></Menu>
-            <Menu href={`/pd`}><li>pd!!</li></Menu>
           </NavVar>
         </MainTitle>
         <NavVar>
           <ButtonWrapper>
+            <span>hello, {user}</span>
             <button onClick={onLogout}>
               <li>Logout</li>
             </button>
@@ -57,7 +59,6 @@ export function Header() {
                 <Menu href={`/`}><li>Main</li></Menu>
                 <Menu href={`/posts`}><li>Posts</li></Menu>
                 <Menu href={`/write`}><li>Write</li></Menu>
-                <Menu href={`/pd`}><li>pd!!</li></Menu>
               </NavVar>
             </MainTitle>
             <NavVar>
