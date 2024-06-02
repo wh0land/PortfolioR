@@ -59,16 +59,16 @@ export default function Write() {
             onChange={(e) => setContent(e.target.value)}
           />
         </PostContent>
-        <ButtonWrapper>
+        <SubmitButtonWrapper>
           <button onClick={writePost}>Upload</button>
-        </ButtonWrapper>
+        </SubmitButtonWrapper>
       </BoxWrapper>
     </PageWrapper>
     </>
   );
 }
 
-const ButtonWrapper = styled.div`
+export const SubmitButtonWrapper = styled.div`
   display: flex;
   gap: 10px;
 
@@ -128,7 +128,7 @@ export const PostContent = styled.div`
   }
 `;
 
-const TitleInput = styled.input`
+export const TitleInput = styled.input`
   width: 100%;
   padding: 10px;
   border: 1px solid #d9d9d9;
@@ -137,7 +137,7 @@ const TitleInput = styled.input`
   outline: none;
 `;
 
-const ContentInput = styled.textarea`
+export const ContentInput = styled.textarea`
   width: 100%;
   height: 200px;
   padding: 10px;

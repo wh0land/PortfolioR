@@ -43,11 +43,13 @@ export default function Login() {
             <h3>로그인</h3>
             <InputBox
               placeholder="아이디를 입력하세요."
+              name="id"
               value={id}
               onChange={handleIdChange}
             />
             <InputBox
               placeholder="비밀번호를 입력하세요."
+              name="pw"
               value={pw}
               onChange={handlePwChange}
             />        

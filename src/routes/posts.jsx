@@ -23,7 +23,7 @@ export default function Posts() {
 
   return (
     <>
-    <PageWrapper>
+    <PlistPageWrapper>
     <PageTitle><h2>게시글</h2></PageTitle>
     <PostboxWrapper>
     {posts.map((post) => (
@@ -43,7 +43,7 @@ export default function Posts() {
         </PostBox>
           ))}
       </PostboxWrapper>
-    </PageWrapper>
+    </PlistPageWrapper>
     </>
   )
 }
@@ -52,6 +52,12 @@ export const PageWrapper = styled.div`
 display: flex;
 flex-direction: column;
 height: 100vh; 
+`
+const PlistPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  margin-bottom: 30px;
 `
 
 export const PageTitle = styled.div`

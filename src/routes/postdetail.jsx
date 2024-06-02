@@ -10,7 +10,7 @@ export default function PostDetail() {
   
   const {postid} = useParams();
   const [loading, setLoading] = useState(true);
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -54,6 +54,7 @@ export default function PostDetail() {
   };
 
   const handleDeleteClick = async () => {
+    //삭제 완료 -> 게시글 리스트로 이동
     try {
       deletePost(post.id);
       console.log("삭제완료!")
@@ -63,7 +64,11 @@ export default function PostDetail() {
       setError(err);
     }
   };
-      
+  
+  // 수정
+  const handleEditClick = () => {
+    navigate(`/edit/${postid}`); // 수정 페이지로 이동
+  };
 
   if (loading) {
     return <PageWrapper>Loading...</PageWrapper>;
@@ -89,7 +94,7 @@ export default function PostDetail() {
         <h5>by. {post.user}</h5>
         </WriterId>
         <ButtonWrapper>
-            <button>edit</button>
+            <button onClick={handleEditClick}>edit</button>
             <button onClick={handleDeleteClick}>delete</button>
         </ButtonWrapper>
         </PostHeader>

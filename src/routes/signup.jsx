@@ -45,12 +45,22 @@ export default function Signup() {
         location: loc,
       });
       console.log(response.data);
+      sessionStorage.setItem("access", response.data.access);
 
       //회원가입 성공시
       navigate('/login');
       return response.data;
       
     } catch (error) {
+      if (error.response) {
+        console.error('응답 데이터:', error.response.data);
+        console.error('응답 상태 코드:', error.response.status);
+        console.error('응답 헤더:', error.response.headers);
+      } else if (error.request) {
+        console.error('요청:', error.request);
+      } else {
+        console.error('에러 메시지:', error.message);
+      }
       return error;
     }
   };
@@ -65,33 +75,39 @@ export default function Signup() {
             <InputBox
               placeholder="아이디"
               value={id}
+              name="id"
               onChange={handleIdChange}
             />
             <PasswordDiv>
               <InputPassword
                 placeholder="비밀번호"
                 value={pw1}
+                name="pw1"
                 onChange={handlePw1Change}
               />
               <InputPassword
                 placeholder="비밀번호 확인"
                 value={pw2}
+                name="pw2"
                 onChange={handlePw2Change}
               />
             </PasswordDiv>
             <InputBox
               placeholder="닉네임"
               value={nname}
+              name="nickname"
               onChange={handleNnameChange}
             /> 
             <InputBox
               placeholder="대학교"
               value={univ}
+              name="university"
               onChange={handleUnivChange}
             />
             <InputBox
               placeholder="소속대학교 지역"
               value={loc}
+              name="location"
               onChange={handleLocChange}
             /> 
             <ButtonWrapper>

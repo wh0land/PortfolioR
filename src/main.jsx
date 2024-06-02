@@ -16,6 +16,7 @@ import Signup from "./routes/signup";
 import Root from "./routes/root";
 import PostDetail from "./routes/postdetail";
 import Loginsuccess from "./login-success";
+import EditPost from "./postedit";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
     {
       path: "/posts/:postid",
       element: <PostDetail/>,
+    },
+    {
+      path: "/edit/:postid",
+      element: <EditPost/>,
     },
     {
       path: "/loginsuccess",
