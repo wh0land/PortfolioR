@@ -49,6 +49,7 @@ export default function Login() {
             />
             <InputBox
               placeholder="비밀번호를 입력하세요."
+              type="password"
               name="pw"
               value={pw}
               onChange={handlePwChange}

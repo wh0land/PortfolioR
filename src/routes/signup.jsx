@@ -81,12 +81,14 @@ export default function Signup() {
             <PasswordDiv>
               <InputPassword
                 placeholder="비밀번호"
+                type="password"
                 value={pw1}
                 name="pw1"
                 onChange={handlePw1Change}
               />
               <InputPassword
                 placeholder="비밀번호 확인"
+                type="password"
                 value={pw2}
                 name="pw2"
                 onChange={handlePw2Change}
