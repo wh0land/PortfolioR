@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "./routes/api";
 import { BoxWrapper, PostHeader, PostContent, TitleInput, ContentInput, SubmitButtonWrapper } from "./routes/write";
 import { PageTitle, PageWrapper } from "./routes/posts";
+import Delpost from "./delpost";
 
 export default function PostEdit() {
   const { postid } = useParams();

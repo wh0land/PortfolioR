@@ -17,6 +17,7 @@ import Root from "./routes/root";
 import PostDetail from "./routes/postdetail";
 import Loginsuccess from "./login-success";
 import EditPost from "./postedit";
+import Delpost from "./delpost";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
     {
       path: "/loginsuccess",
       element: <Loginsuccess/>,
+    },
+    {
+      path: "/delpost",
+      element: <Delpost/>,
     }  ]
   }
 ]);

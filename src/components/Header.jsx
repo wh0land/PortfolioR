@@ -35,6 +35,7 @@ export function Header() {
             <Menu href={`/`}><li>Main</li></Menu>
             <Menu href={`/posts`}><li>Posts</li></Menu>
             <Menu href={`/write`}><li>Write</li></Menu>
+            <Menu href={`/delpost`}><li>삭제확인</li></Menu>
           </NavVar>
         </MainTitle>
         <NavVar>

@@ -5,6 +5,7 @@ import api from "./api";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate} from "react-router-dom";
 import ErrorPage from "../error-page";
+import Delpost from "../delpost";
 
 export default function PostDetail() {
   
@@ -64,6 +65,10 @@ export default function PostDetail() {
       setError(err);
     }
   };
+
+  const confirmDeletePost = () => {
+    navigate('/delpost')
+  };
   
   // 수정
   const handleEditClick = () => {
@@ -104,6 +109,9 @@ export default function PostDetail() {
         </PostContent>
       </PostBox>
     </PostboxWrapper>
+    <Modal>
+    <Delpost/>
+    </Modal>
     </PageWrapper>
     </>
   );
@@ -171,3 +179,11 @@ const PostId = styled.div`
     margin:0px;
   };
 `
+
+const Modal = styled.div`
+  display: flex;
+  position: absolute;
+  
+  ;
+`
+
