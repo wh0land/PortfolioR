@@ -56,10 +56,7 @@ const router = createBrowserRouter([
       path: "/loginsuccess",
       element: <Loginsuccess/>,
     },
-    {
-      path: "/delpost",
-      element: <Delpost/>,
-    }  ]
+ ]
   }
 ]);
 

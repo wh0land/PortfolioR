@@ -1,28 +1,16 @@
 import styled from "styled-components";
 
-export default function Delpost() {
+export default function Delpost({onConfirm, onCancel}) {
   return (
-    <ConfirmBoxWrapper>
-        <BoxWrapper>
-          <h3>정말 삭제하시겠습니까?</h3>
-          <ButtonWrapper>
-            <button>예</button>
-            <button>아니오</button>
-          </ButtonWrapper>
-          </BoxWrapper>
-    </ConfirmBoxWrapper>
+  <BoxWrapper>
+    <h3>정말 삭제하시겠습니까?</h3>
+    <ButtonWrapper>
+      <button onClick={onConfirm}>예</button>
+      <button onClick={onCancel}>아니오</button>
+    </ButtonWrapper>
+  </BoxWrapper>
   )
 }
-
-const ConfirmBoxWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:100vw;
-  height: 100vh;
-  margin: 0px;
-  background-color:rgba(0, 0, 0, 0.3);
-`
 
 export const BoxWrapper = styled.div`
   display: flex;

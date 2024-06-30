@@ -13,6 +13,7 @@ export default function PostDetail() {
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState('');
   const [error, setError] = useState('');
+  const [showDelModal, setshowDelModal] = useState(false);
   const navigate = useNavigate();
 
   const getPosts = async () => {
@@ -54,20 +55,18 @@ export default function PostDetail() {
       }
   };
 
+  //삭제 버튼 클릭 -> 모달표시 
   const handleDeleteClick = async () => {
-    //삭제 완료 -> 게시글 리스트로 이동
-    try {
-      deletePost(post.id);
-      console.log("삭제완료!")
-      navigate('/post');
-    } catch (err) {
-      console.error('에러: ', err);
-      setError(err);
-    }
+    setshowDelModal(true);
   };
 
   const confirmDeletePost = () => {
-    navigate('/delpost')
+    deletePost(post.id);
+    setshowDelModal(false);
+  };
+
+  const cancelDeletePost = () => {
+      setshowDelModal(false);
   };
   
   // 수정
@@ -109,9 +108,15 @@ export default function PostDetail() {
         </PostContent>
       </PostBox>
     </PostboxWrapper>
-    <Modal>
-    <Delpost/>
+    {showDelModal && (//modal 표시조건
+      <Modal>
+      <Delpost
+        onConfirm={confirmDeletePost} 
+        onCancel={cancelDeletePost}
+      />
     </Modal>
+    )}
+
     </PageWrapper>
     </>
   );
@@ -181,9 +186,16 @@ const PostId = styled.div`
 `
 
 const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  position: absolute;
-  
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
   ;
 `
 
